@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebStore.Context;
+using WebStore.Repositories;
+using WebStore.Repositories.Interface;
 
 namespace WebStore
 {
@@ -17,6 +19,12 @@ namespace WebStore
         {
             services.AddDbContext<AppDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddTransient<IProdutoRepository, ProdutoRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
+            services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<IVendaRepository, VendaRepository>();
 
             services.AddControllersWithViews();
         }
