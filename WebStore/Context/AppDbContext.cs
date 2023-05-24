@@ -10,6 +10,7 @@ namespace WebStore.Context
         }
 
         public DbSet<Venda> Vendas { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
