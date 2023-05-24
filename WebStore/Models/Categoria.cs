@@ -9,5 +9,6 @@ namespace WebStore.Models
         [Required(ErrorMessage ="Informe categoria")]
         [Display(Name ="Nome")]
         public string CategNome { get; set; }
+        public List<Produto> Produtos { get; set; }
     }
 }

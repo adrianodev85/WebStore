@@ -18,8 +18,11 @@ namespace WebStore.Models
 
         [Display(Name ="Preço Unitario")]
         [Column(TypeName ="decimal(10,2)")]
-        public double ValorUnitario { get; set; }
-        public Categoria Categoria { get; set; }
+        public double ValorUnitario { get; set; }               
+        public int CategoriaId { get; set; }
+
+        [ForeignKey(nameof(CategoriaId))]
+        public virtual Categoria Categoria { get; set; }
 
         [StringLength(100, ErrorMessage = "Tamanho Maximo é 100 caracteres")]
         public string ImgUrl { get; set; }
