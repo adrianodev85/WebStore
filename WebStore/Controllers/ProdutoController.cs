@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebStore.Models;
 using WebStore.Repositories.Interface;
+using WebStore.ViewModels;
 
 namespace WebStore.Controllers
 {
@@ -15,8 +16,14 @@ namespace WebStore.Controllers
 
         public IActionResult List()
         {
-            var produto = _produtoRepository.Produtos;
-            return View(produto);
+            /*var produto = _produtoRepository.Produtos;
+            return View(produto);*/
+
+            var produtoListViewModel = new ProdutoListViewModel();
+            produtoListViewModel.Produtos = _produtoRepository.Produtos;
+            produtoListViewModel.CategoriaAtual = "Categoria Atual";
+
+            return View(produtoListViewModel);
         }
     }
 }
